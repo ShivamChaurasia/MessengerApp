@@ -15,16 +15,12 @@ export const receivePosts = (json) => ({
   posts: json,
 })
 
-const fetchContacts = () => dispatch => {
+export const fetchContacts = () => dispatch => {
   dispatch(requestPosts())
   request('GET', 'https://api.github.com/users')
   	.then(function(response){
     	dispatch(receivePosts(response.body))
     })
-}
-
-export const fetchPostsIfNeeded = () => (dispatch, getState) => {
-    return dispatch(fetchContacts())
 }
 
 export const filterList = (string) => ({

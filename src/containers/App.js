@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { fetchPostsIfNeeded } from '../actions'
+import { fetchContacts } from '../actions'
 import Container from '../components/Container';
 import Loader from '../components/Loader';
 import '../components/index.css';
@@ -16,8 +16,7 @@ class App extends Component {
   }
   componentDidMount(){
     const { dispatch } = this.props
-    dispatch(fetchPostsIfNeeded());
-    var _this=this;
+    dispatch(fetchContacts());
   }
   render(){
     const { isFetching, posts, selected, selectedURL, chatData} = this.props;
