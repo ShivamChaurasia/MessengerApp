@@ -1,5 +1,5 @@
 import {
-  REQUEST_POSTS, RECEIVE_POSTS,FILTER_LIST,UPDATE_SELECTED,ADD_CHAT
+  REQUEST_POSTS, RECEIVE_POSTS,FILTER_LIST,UPDATE_SELECTED,UPDATE_TEXT,ADD_CHAT
 } from '../actions'
 import _ from 'lodash';
 
@@ -11,7 +11,8 @@ const appStates = (state = {
     selected:1,
     posts: [],
     chatData:[],
-    selectedURL:""
+    selectedURL:"",
+    message:""
 }, action) => {
     switch (action.type) {
         case REQUEST_POSTS:
@@ -41,11 +42,17 @@ const appStates = (state = {
                 selected:action.id,
                 selectedURL: action.url
             }
+        case UPDATE_TEXT:
+            return {
+                ...state,
+                message:action.newMsg
+            }
         case ADD_CHAT:
-            chatData.push({id:Math.floor(Date.now() / 1000), from:"selfa", time:"10:10 AM", message:action.newMsg})
+            chatData.push({id:Math.floor(Date.now()), from:"selfa", time:"10:10 AM", message:state.message})
             let newChatData = JSON.parse(JSON.stringify(chatData));
             return {
                 ...state,
+                message:"",
                 chatData:newChatData
             }
         default:

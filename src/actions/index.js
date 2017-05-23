@@ -2,6 +2,7 @@ export const REQUEST_POSTS = 'REQUEST_POSTS';
 export const RECEIVE_POSTS = 'RECEIVE_POSTS';
 export const FILTER_LIST = 'FILTER_LIST';
 export const UPDATE_SELECTED = 'UPDATE_SELECTED';
+export const UPDATE_TEXT = 'UPDATE_TEXT';
 export const ADD_CHAT = 'ADD_CHAT';
 
 var request = require('superagent');
@@ -34,7 +35,11 @@ export const updateSelected = (id,url) => ({
   url: url,
 })
 
-export const addChat = (newMsg) => ({
-  type: ADD_CHAT,
+export const updateText = (newMsg) => ({
+  type: UPDATE_TEXT,
   newMsg: newMsg
+})
+
+export const addChat = () => ({
+  type: ADD_CHAT
 })

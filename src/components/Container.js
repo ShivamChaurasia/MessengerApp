@@ -4,13 +4,13 @@ import ChatBox from './ChatBox';
 
 class Container extends Component {
   render(){
-    let { contactData, selected, selectedURL, chatData } = this.props;
+    let { contactData, selected, selectedURL, chatData, message } = this.props;
     return (
       <div>
         <div className="banner"><img src="https://chatteron.io/images/chatteron.png" alt="ChatterOn Logo" className="light-logo" /></div>
         <div className="app">
           <LeftBar contactData={contactData} selected={selected}/>
-          <ChatBox chatData={chatData} selectedURL={selectedURL}/>
+          <ChatBox chatData={chatData} selectedURL={selectedURL} message={message}/>
         </div>
       </div>
       )

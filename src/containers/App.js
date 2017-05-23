@@ -19,22 +19,23 @@ class App extends Component {
     dispatch(fetchContacts());
   }
   render(){
-    const { isFetching, posts, selected, selectedURL, chatData} = this.props;
+    const { isFetching, posts, selected, selectedURL, chatData, message} = this.props;
     return (
       <div className="app-wrapper">
-        {isFetching ? <Loader /> : <Container contactData={posts} selected={selected} selectedURL={selectedURL} chatData={chatData}/>}
+        {isFetching ? <Loader /> : <Container contactData={posts} selected={selected} selectedURL={selectedURL} chatData={chatData} message={message}/>}
       </div>)
   }
 }
 
 const mapStateToProps = state => {
-    const { posts, isFetching, selected, selectedURL, chatData } = state;
+    const { posts, isFetching, selected, selectedURL, chatData, message } = state;
     return {
       isFetching,
       selected,
       selectedURL,
       chatData,
-      posts: posts
+      posts: posts,
+      message
     }
 }
 

@@ -1,10 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Person from './Person';
 import SearchComponent from './SearchComponent';
 
-class LeftBar extends Component {
-  render(){
-    let { selected, contactData } = this.props;
+let LeftBar =({ selected, contactData })=> {
     return (
       <div id="side" className="chatlist-panel pane pane-one">
         <SearchComponent />
@@ -17,6 +15,5 @@ class LeftBar extends Component {
         </div>
       </div>
       )
-  }
 }
 export default LeftBar;
