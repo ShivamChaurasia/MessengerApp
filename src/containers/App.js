@@ -29,23 +29,15 @@ class App extends Component {
 }
 
 const mapStateToProps = state => {
-  if(!state.items){
-      return {
-      isFetching: true,
-      selected:1,
-      posts: [],
-      chatData:[]
-    }
-  }else{
-    const { items, isFetching, selected, selectedURL, chatData } = state;
+    const { posts, isFetching, selected, selectedURL, chatData } = state;
     return {
       isFetching,
       selected,
       selectedURL,
       chatData,
-      posts: items
+      posts: posts
     }
-  }
 }
 
 export default connect(mapStateToProps)(App)
+// export default App
