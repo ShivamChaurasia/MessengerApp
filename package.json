@@ -1,6 +1,7 @@
 {
-  "name": "my-app",
+  "name": "chat-app",
   "version": "0.1.0",
+  "author":"https://github.com/ShivamChaurasia",
   "private": true,
   "dependencies": {
     "react": "^15.5.4",
