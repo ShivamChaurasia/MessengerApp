@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import LeftBar from './LeftBar';
 import ChatBox from './ChatBox';
 import logo from '../images/chatteron.png';
+import { connect } from 'react-redux';
 
 class Container extends Component {
   render(){
@@ -17,4 +18,14 @@ class Container extends Component {
       )
   }
 }
-export default Container;
+const mapStateToProps = state => {
+    const { posts, selected, selectedURL, chatData, message } = state;
+    return {
+      selected,
+      selectedURL,
+      chatData,
+      contactData: posts,
+      message
+    }
+}
+export default connect(mapStateToProps)(Container)

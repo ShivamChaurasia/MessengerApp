@@ -8,36 +8,26 @@ import '../components/index.css';
 
 class App extends Component {
   static propTypes = {
-    posts: PropTypes.array.isRequired,
-    chatData: PropTypes.array.isRequired,
-    isFetching: PropTypes.bool.isRequired,
-    dispatch: PropTypes.func.isRequired,
-    selected: PropTypes.number.isRequired,
+    isFetching: PropTypes.bool.isRequired
   }
   componentDidMount(){
     const { dispatch } = this.props
     dispatch(fetchContacts());
   }
   render(){
-    const { isFetching, posts, selected, selectedURL, chatData, message} = this.props;
+    const { isFetching } = this.props;
     return (
       <div className="app-wrapper">
-        {isFetching ? <Loader /> : <Container contactData={posts} selected={selected} selectedURL={selectedURL} chatData={chatData} message={message}/>}
+        {isFetching ? <Loader /> : <Container />}
       </div>)
   }
 }
 
 const mapStateToProps = state => {
-    const { posts, isFetching, selected, selectedURL, chatData, message } = state;
+    const { isFetching} = state;
     return {
-      isFetching,
-      selected,
-      selectedURL,
-      chatData,
-      posts: posts,
-      message
+      isFetching
     }
 }
 
 export default connect(mapStateToProps)(App)
-// export default App
